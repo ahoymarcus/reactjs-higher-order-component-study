@@ -50,6 +50,19 @@ const UsersList = () => {
 	});
 	
 	
+	let filterUsers = users.filter(({ name }) => {
+		console.log(name.indexOf(search) >= 0);
+		
+		return name.indexOf(search) >= 0;
+	}).map((user) => {
+		return (
+			<div key={user.id}>
+				<p><strong>{user.name}</strong></p>
+			</div>
+		);
+	});
+	
+	
 	return (
 		<Wrapper>
 			<Input 
@@ -58,7 +71,7 @@ const UsersList = () => {
 				placeholder="Search users"
 				onChange={(e) => setSearch(e.target.value)}
 			/>
-			{renderUsers}
+			{filterUsers}
 		</Wrapper>
 	);
 };
