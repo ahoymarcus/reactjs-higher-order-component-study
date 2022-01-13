@@ -92,8 +92,18 @@ p {
 	justify-content: space-between;*/
 	
 	display: grid;
-	grid-template-columns: 1fr 1fr;
+	grid-template-columns: 0.5fr 1.5fr;
+	grid-gap: 8rem;
+	padding: 10px 35px 20px 35px;
 }
+
+.app h1 {
+	padding: 10px;
+	font-size: 3.5rem;
+	text-align: center;
+}
+
+
 
 
 

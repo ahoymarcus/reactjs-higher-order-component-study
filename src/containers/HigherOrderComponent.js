@@ -1,5 +1,18 @@
 import React from 'react';
+import styled from 'styled-components';
 
+
+
+
+// styles
+const Input = styled.input`
+	margin: 20px 0px;
+	padding: 5px;
+`;
+
+const Heading2 = styled.h2`
+	color: gray;
+`;
 
 
 const HigherOrderComponent = (WrappedComponent, entity) => {
@@ -32,7 +45,7 @@ const HigherOrderComponent = (WrappedComponent, entity) => {
 			let { search, data } = this.state;
 			
 			
-			let filteredData = data.filter((d) => {
+			let filteredData = data.slice(0, 10).filter((d) => {
 				if (entity === 'users') {
 					const { name } = d;
 					
@@ -48,8 +61,8 @@ const HigherOrderComponent = (WrappedComponent, entity) => {
 			
 			return (
 				<div>
-					<h2>{entity}</h2>
-					<input 
+					<Heading2>{entity}</Heading2>
+					<Input 
 						type="text" 
 						value={search}
 						placeholder="Search users"
