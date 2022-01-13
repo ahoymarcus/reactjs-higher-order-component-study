@@ -20,26 +20,26 @@ const NotFount = styled.p`
 `;
 
 const Heading2 = styled.h2`
-	color: gray;
+	color: purple;
 `;
 
 
-const usersURL = 'https://jsonplaceholder.typicode.com/users';
+const todosURL = 'https://jsonplaceholder.typicode.com/todos';
 
-const UsersList = () => {
-	const [ users, setUsers ] = useState([]);
+const TodoList = () => {
+	const [ todos, setTodos ] = useState([]);
 	const [ search, setSearch ] = useState('');
 	//console.log(search);
 	
 	
-	const fetchUsers = async (url) => {
+	const fetchTodos = async (url) => {
 		try {
 			const response = await fetch(url);
 			const data = await response.json();
 			
 			console.log(data);
 			
-			setUsers(data);
+			setTodos(data);
 		} catch (err) {
 			console.log(err);
 		}
@@ -47,27 +47,27 @@ const UsersList = () => {
 	
 	
 	useEffect(() => {
-		fetchUsers(usersURL);
+		fetchTodos(todosURL);
 	}, []);
 	
 	
-	const renderUsers = users.map((user) => {
+	const renderTodos = todos.map((todo) => {
 		return (
-			<div key={user.id}>
-				<p><strong>{user.name}</strong></p>
+			<div key={todo.id}>
+				<p><strong>{todo.title}</strong></p>
 			</div>
 		);
 	});
 	
 	
-	let filterUsers = users.filter(({ name }) => {
-		console.log(name.indexOf(search) >= 0);
+	let filterUsers = todos.filter(({ title }) => {
+		console.log(title.indexOf(search) >= 0);
 		
-		return name.indexOf(search) >= 0;
-	}).map((user) => {
+		return title.indexOf(search) >= 0;
+	}).map((todo) => {
 		return (
-			<div key={user.id}>
-				<p><strong>{user.name}</strong></p>
+			<div key={todo.id}>
+				<p><strong>{todo.title}</strong></p>
 			</div>
 		);
 	});
@@ -75,7 +75,7 @@ const UsersList = () => {
 	
 	return (
 		<Wrapper>
-			<Heading2>Users</Heading2>
+			<Heading2>TodoList</Heading2>
 			<Input 
 				type="text" 
 				value={search}
@@ -94,6 +94,6 @@ const UsersList = () => {
 
 
 
-export default UsersList;
+export default TodoList;
 
 

@@ -4,6 +4,7 @@ import React from 'react';
 
 // components
 import UsersList from './containers/UsersList';
+import TodoList from './containers/TodoList';
 
 // styles
 import './App.css';
@@ -20,6 +21,7 @@ const App = () => {
 			<h1>Higher Order Component</h1>
 			<div className="section">
 				<UsersList />
+				<TodoList />
 			</div>
 		</div>
 	);
