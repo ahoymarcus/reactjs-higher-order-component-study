@@ -1,4 +1,4 @@
-# Studying React-JS Higher Order Components
+# Studying React-JS Higher Order Component
  
 
 <br />
@@ -11,7 +11,7 @@ Este projeto cria um aplicativo de estudo para usar a funcionalidade dos Higher 
 
 R:
 
-- [_____ App no Netlify]()
+- [Higher Order Component Studying App no Netlify](https://reactjs-higher-order-component-study.netlify.app/)
 
 <br />
 
