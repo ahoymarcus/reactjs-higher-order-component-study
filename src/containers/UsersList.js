@@ -13,6 +13,12 @@ const Input = styled.input`
 	padding: 5px;
 `;
 
+const NotFount = styled.p`
+	color: red;
+	font-weight: bold;
+	margin-left: 15px;
+`;
+
 
 const usersURL = 'https://jsonplaceholder.typicode.com/users';
 
@@ -71,7 +77,12 @@ const UsersList = () => {
 				placeholder="Search users"
 				onChange={(e) => setSearch(e.target.value)}
 			/>
-			{filterUsers}
+			{filterUsers.length > 0 ? (
+					filterUsers 
+				) : (
+					<NotFount>User not found!</NotFount> 
+				)
+			}
 		</Wrapper>
 	);
 };
