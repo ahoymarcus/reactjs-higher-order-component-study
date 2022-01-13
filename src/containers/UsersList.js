@@ -5,11 +5,11 @@ import styled from 'styled-components';
 
 // styles
 const Wrapper = styled.div`
-	padding: 15px 30px;
+	padding: 15px 0 15px 30px;
 `;
 
 const Input = styled.input`
-	margin: 15px 40px;
+	margin: 20px 0px;
 	padding: 5px;
 `;
 

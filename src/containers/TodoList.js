@@ -5,11 +5,11 @@ import styled from 'styled-components';
 
 // styles
 const Wrapper = styled.div`
-	padding: 15px 30px;
+	padding: 15px 30px 15px 0;
 `;
 
 const Input = styled.input`
-	margin: 15px 40px;
+	margin: 20px 0px;
 	padding: 5px;
 `;
 
@@ -60,19 +60,20 @@ const TodoList = () => {
 	});
 	
 	
-	let filteredTodos = todos.filter(({ title }) => {
-		console.log(title.indexOf(search) >= 0);
-		
-		return title.indexOf(search) >= 0;
-	})
-	.slice(0, 10)
-	.map((todo) => {
-		return (
-			<div key={todo.useriId}>
-				<p><strong>{todo.title}</strong></p>
-			</div>
-		);
-	});
+	let filteredTodos = todos
+		.slice(0, 10)
+		.filter(({ title }) => {
+			console.log(title.indexOf(search) >= 0);
+			
+			return title.indexOf(search) >= 0;
+		})
+		.map((todo) => {
+			return (
+				<div key={todo.useriId}>
+					<p><strong>{todo.title}</strong></p>
+				</div>
+			);
+		});
 	
 	
 	return (
