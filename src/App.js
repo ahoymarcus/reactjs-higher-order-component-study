@@ -3,8 +3,8 @@
 import React from 'react';
 
 // components
-import UsersList from './containers/UsersList';
-import TodoList from './containers/TodoList';
+import SearchUsers from './components/UsersList';
+import SearchTodos from './components/TodoList';
 
 // styles
 import './App.css';
@@ -20,8 +20,8 @@ const App = () => {
 		<div className="app">
 			<h1>Higher Order Component</h1>
 			<div className="section">
-				<UsersList />
-				<TodoList />
+				<SearchUsers />
+				<SearchTodos />
 			</div>
 		</div>
 	);

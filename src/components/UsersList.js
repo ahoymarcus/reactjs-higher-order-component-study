@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 
+// HigherOrderComponent
+import HigherOrderComponent from '../containers/HigherOrderComponent';
+
 
 
 // styles
@@ -26,32 +29,31 @@ const Heading2 = styled.h2`
 
 const usersURL = 'https://jsonplaceholder.typicode.com/users';
 
-const UsersList = () => {
-	const [ users, setUsers ] = useState([]);
-	const [ search, setSearch ] = useState('');
-	//console.log(search);
+const UsersList = ({ data }) => {
+	// const [ users, setUsers ] = useState([]);
+	// const [ search, setSearch ] = useState('');
 	
 	
-	const fetchUsers = async (url) => {
-		try {
-			const response = await fetch(url);
-			const data = await response.json();
+	// const fetchUsers = async (url) => {
+		// try {
+			// const response = await fetch(url);
+			// const data = await response.json();
 			
-			console.log(data);
+			// console.log(data);
 			
-			setUsers(data);
-		} catch (err) {
-			console.log(err);
-		}
-	};
+			// setUsers(data);
+		// } catch (err) {
+			// console.log(err);
+		// }
+	// };
 	
 	
-	useEffect(() => {
-		fetchUsers(usersURL);
-	}, []);
+	// useEffect(() => {
+		// fetchUsers(usersURL);
+	// }, []);
 	
 	
-	const renderUsers = users.map((user) => {
+	const renderUsers = data.map((user) => {
 		return (
 			<div key={user.id}>
 				<p><strong>{user.name}</strong></p>
@@ -60,30 +62,23 @@ const UsersList = () => {
 	});
 	
 	
-	let filteredUsers = users.filter(({ name }) => {
-		console.log(name.indexOf(search) >= 0);
+	// let filteredUsers = users.filter(({ name }) => {
+		// console.log(name.indexOf(search) >= 0);
 		
-		return name.indexOf(search) >= 0;
-	}).map((user) => {
-		return (
-			<div key={user.id}>
-				<p><strong>{user.name}</strong></p>
-			</div>
-		);
-	});
+		// return name.indexOf(search) >= 0;
+	// }).map((user) => {
+		// return (
+			// <div key={user.id}>
+				// <p><strong>{user.name}</strong></p>
+			// </div>
+		// );
+	// });
 	
 	
 	return (
 		<Wrapper>
-			<Heading2>Users</Heading2>
-			<Input 
-				type="text" 
-				value={search}
-				placeholder="Search users"
-				onChange={(e) => setSearch(e.target.value)}
-			/>
-			{filteredUsers.length > 0 ? (
-					filteredUsers 
+			{renderUsers.length > 0 ? (
+					renderUsers 
 				) : (
 					<NotFount>User not found!</NotFount> 
 				)
@@ -94,6 +89,9 @@ const UsersList = () => {
 
 
 
-export default UsersList;
+const SearchUsers = HigherOrderComponent(UsersList, 'users');
+
+
+export default SearchUsers;
 
 

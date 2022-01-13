@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 
+// HigherOrderComponent
+import HigherOrderComponent from '../containers/HigherOrderComponent';
+
 
 
 // styles
@@ -26,67 +29,61 @@ const Heading2 = styled.h2`
 
 const todosURL = 'https://jsonplaceholder.typicode.com/todos';
 
-const TodoList = () => {
-	const [ todos, setTodos ] = useState([]);
-	const [ search, setSearch ] = useState('');
-	//console.log(search);
+const TodoList = ({ data }) => {
+	// const [ todos, setTodos ] = useState([]);
+	// const [ search, setSearch ] = useState('');
 	
 	
-	const fetchTodos = async (url) => {
-		try {
-			const response = await fetch(url);
-			const data = await response.json();
+	// const fetchTodos = async (url) => {
+		// try {
+			// const response = await fetch(url);
+			// const data = await response.json();
 			
-			console.log(data);
+			// console.log(data);
 			
-			setTodos(data);
-		} catch (err) {
-			console.log(err);
-		}
-	};
+			// setTodos(data);
+		// } catch (err) {
+			// console.log(err);
+		// }
+	// };
 	
 	
-	useEffect(() => {
-		fetchTodos(todosURL);
-	}, []);
+	// useEffect(() => {
+		// fetchTodos(todosURL);
+	// }, []);
 	
 	
-	const renderTodos = todos.map((todo) => {
-		return (
-			<div key={todo.id}>
-				<p><strong>{todo.title}</strong></p>
-			</div>
-		);
-	});
-	
-	
-	let filteredTodos = todos
+	const renderTodos = data
 		.slice(0, 10)
-		.filter(({ title }) => {
-			console.log(title.indexOf(search) >= 0);
-			
-			return title.indexOf(search) >= 0;
-		})
 		.map((todo) => {
 			return (
-				<div key={todo.useriId}>
+				<div key={todo.userId}>
 					<p><strong>{todo.title}</strong></p>
 				</div>
 			);
-		});
+	});
+	
+	
+	// let filteredTodos = todos
+		// .slice(0, 10)
+		// .filter(({ title }) => {
+			// console.log(title.indexOf(search) >= 0);
+			
+			// return title.indexOf(search) >= 0;
+		// })
+		// .map((todo) => {
+			// return (
+				// <div key={todo.useriId}>
+					// <p><strong>{todo.title}</strong></p>
+				// </div>
+			// );
+		// });
 	
 	
 	return (
 		<Wrapper>
-			<Heading2>TodoList</Heading2>
-			<Input 
-				type="text" 
-				value={search}
-				placeholder="Search users"
-				onChange={(e) => setSearch(e.target.value)}
-			/>
-			{filteredTodos.length > 0 ? (
-					filteredTodos 
+			{renderTodos.length > 0 ? (
+					renderTodos 
 				) : (
 					<NotFount>User not found!</NotFount> 
 				)
@@ -97,6 +94,9 @@ const TodoList = () => {
 
 
 
-export default TodoList;
+const SearchTodos = HigherOrderComponent(TodoList, 'todos');
+
+
+export default SearchTodos;
 
 
