@@ -44,12 +44,12 @@ const HigherOrderComponent = (WrappedComponent, entity) => {
 		render() {
 			let { search, data } = this.state;
 			
-			
-			let filteredData = data.slice(0, 10).filter((d) => {
+			let filteredData = data.slice(0, 10)
+				.filter((d) => {
 				if (entity === 'users') {
 					const { name } = d;
 					
-					return name.indexOf(search) >= 0;
+					return name.toLowerCase().indexOf(search) >= 0;
 				}
 				if (entity === 'todos') {
 					const { title } = d;
@@ -59,13 +59,14 @@ const HigherOrderComponent = (WrappedComponent, entity) => {
 			});
 			
 			
+			
 			return (
 				<div>
 					<Heading2>{entity}</Heading2>
 					<Input 
 						type="text" 
 						value={search}
-						placeholder="Search users"
+						placeholder={entity === 'users' ? 'Search users' : 'Search tasks'}
 						onChange={(e) => this.setState({
 							...this.state,
 							search: e.target.value

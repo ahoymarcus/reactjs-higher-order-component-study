@@ -7,6 +7,10 @@ import HigherOrderComponent from '../containers/HigherOrderComponent';
 
 
 // styles
+const SpanId = styled.span`
+	color: green;
+`;
+
 const NotFount = styled.p`
 	color: red;
 	font-weight: bold;
@@ -21,7 +25,9 @@ const UsersList = ({ data }) => {
 	const renderUsers = data.map((user) => {
 		return (
 			<div key={user.id}>
-				<p><strong>{user.name}</strong></p>
+				<p>
+					<SpanId>Id: {user.id}</SpanId>: <strong>{user.name}</strong>
+				</p>
 			</div>
 		);
 	});

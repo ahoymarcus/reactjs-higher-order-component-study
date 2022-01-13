@@ -1,44 +1,33 @@
-# Mr Smileys App - React-JS and D3.js
+# Studying React-JS Higher Order Components
  
 
 <br />
 
-Projeto para criar um React-JS app que renderiza 'carinhas' de emoji usando SVG e a biblioteca JavaScript D3.js.:[^1]
+Este projeto cria um aplicativo de estudo para usar a funcionalidade dos Higher Order Components para refatorar as lógicas duplicadas de dois componentes de listas sendo renderizados pela aplicação.:[^1]
 
-<br />
-
-**Parte do curso de Visualização de Dados da Freecodecamp.org**
 
 
 <br />
 
 R:
 
-- [Mr Smileys App no Netlify](https://d3js-reactjs-emoji-faces.netlify.app/)
+- [_____ App no Netlify]()
 
 <br />
 
 Dependências:
 
 - React-JS
-- D3.js
-
-
-
-<br />
-
-
-### Imagem do App criando o emoji Smiley:
-
-![Imagem do App criando o emoji Smiley](/public/images/d3js-reactjs-smiley-face-01.png)
+- Styled-components
+- API 
 
 
 <br />
 
 
-### Imagem do App criando variações de um emoji:
+### Imagem final do App renderizando as duas listas refatoradas para retirar lógica dupliada enviando para um componente de Ordem Maior :
 
-![Imagem do App criando variações de um emoji:](/public/images/d3js-reactjs-smiley-face-02.png)
+![Imagem final do App renderizando as duas listas refatoradas](/public/images/reactjs-higher-order-component.png)
 
 
 
@@ -47,6 +36,6 @@ Dependências:
 <br />
 <br />
 
-[freecodecamp.org](https://www.freecodecamp.org/)
 
-[^1]:freecodecamp.org 
+
+[^1]:Dipesh Malvia - youtube 

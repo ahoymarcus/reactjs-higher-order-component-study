@@ -7,6 +7,10 @@ import HigherOrderComponent from '../containers/HigherOrderComponent';
 
 
 // styles
+const SpanId = styled.span`
+	color: green;
+`;
+
 const NotFount = styled.p`
 	color: red;
 	font-weight: bold;
@@ -20,8 +24,11 @@ const TodoList = ({ data }) => {
 	
 	const renderTodos = data.map((todo) => {
 			return (
-				<div key={todo.userId}>
-					<p><strong>{todo.title}</strong></p>
+				<div key={todo.id}>
+					<p>
+						<SpanId>User Id: {todo.userId}</SpanId>:
+						Task: {todo.title}
+					</p>
 				</div>
 			);
 	});
