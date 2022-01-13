@@ -60,13 +60,15 @@ const TodoList = () => {
 	});
 	
 	
-	let filterUsers = todos.filter(({ title }) => {
+	let filteredTodos = todos.filter(({ title }) => {
 		console.log(title.indexOf(search) >= 0);
 		
 		return title.indexOf(search) >= 0;
-	}).map((todo) => {
+	})
+	.slice(0, 10)
+	.map((todo) => {
 		return (
-			<div key={todo.id}>
+			<div key={todo.useriId}>
 				<p><strong>{todo.title}</strong></p>
 			</div>
 		);
@@ -82,8 +84,8 @@ const TodoList = () => {
 				placeholder="Search users"
 				onChange={(e) => setSearch(e.target.value)}
 			/>
-			{filterUsers.length > 0 ? (
-					filterUsers 
+			{filteredTodos.length > 0 ? (
+					filteredTodos 
 				) : (
 					<NotFount>User not found!</NotFount> 
 				)

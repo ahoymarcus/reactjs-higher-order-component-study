@@ -60,7 +60,7 @@ const UsersList = () => {
 	});
 	
 	
-	let filterUsers = users.filter(({ name }) => {
+	let filteredUsers = users.filter(({ name }) => {
 		console.log(name.indexOf(search) >= 0);
 		
 		return name.indexOf(search) >= 0;
@@ -82,8 +82,8 @@ const UsersList = () => {
 				placeholder="Search users"
 				onChange={(e) => setSearch(e.target.value)}
 			/>
-			{filterUsers.length > 0 ? (
-					filterUsers 
+			{filteredUsers.length > 0 ? (
+					filteredUsers 
 				) : (
 					<NotFount>User not found!</NotFount> 
 				)
